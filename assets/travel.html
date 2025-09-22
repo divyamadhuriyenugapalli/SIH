@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sikkim Travel & Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0; padding: 0;
+            background: #fff7f0;
+            color: #333;
+        }
+        header {
+            background: #ff7b00;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        header h1 { margin: 0; font-size: 2rem; }
+        header p { font-size: 1rem; margin-top: 0.3rem; }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .info, .booking, .reviews, .review-form {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 6px 20px rgba(255,123,0,0.2);
+            border: 2px solid #ff9f40;
+        }
+        .info h2, .booking h2, .reviews h2, .review-form h2 {
+            color: #ff7b00;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .info img { width: 100%; border-radius: 12px; margin-bottom: 1rem; }
+        .info p { line-height: 1.6; }
+        .booking form, .review-form form { display: flex; flex-direction: column; }
+        label { margin: 0.5rem 0 0.2rem; }
+        input, select, textarea { padding: 0.6rem; border-radius: 6px; border: 1px solid #ff9f40; margin-bottom: 0.8rem; font-size: 1rem; }
+        button { background: #ff7b00; color: white; padding: 0.8rem; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #e84a00; }
+        .review { background: #fff4e6; padding: 0.8rem; margin-bottom: 0.8rem; border-left: 4px solid #ff7b00; border-radius: 6px; }
+        .review h4 { margin: 0; color: #e84a00; }
+        footer { text-align: center; padding: 1.5rem; margin-top: 2rem; background: #ff7b00; color: white; font-size: 0.9rem; }
+        @media (min-width: 900px) {
+            main { flex-direction: row; gap: 2rem; }
+            .info, .booking { flex: 1 1 45%; }
+            .reviews, .review-form { flex: 1 1 100%; }
+        }
+        @media (max-width: 900px) {
+            main { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Explore Sikkim</h1>
+    <p>Book Tours & Participate in Cultural Heritage Programs</p>
+</header>
+
+<main>
+    <!-- Information Section -->
+    <div class="info">
+        <h2>Discover Sikkim’s Monasteries</h2>
+        <img src="https://www.sikkimtours.online/assets/images/gallery/budhism-in-sikkim.webp" alt="Sikkim Monastery">
+        <p>Experience the serene monasteries of Sikkim, from Rumtek to Pemayangtse. Learn about sacred rituals, participate in cultural festivals, and explore the rich heritage of Sikkim with our guided tours and immersive experiences.</p>
+        <p>Best seasons: Spring & Autumn</p>
+    </div>
+
+    <!-- Booking Form Section -->
+    <div class="booking">
+        <h2>Book Your Visit</h2>
+        <form action="#" method="post">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="student">Are you a student?</label>
+            <select id="student" name="student" required>
+                <option value="">Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="tour">Select Tour Package</label>
+            <select id="tour" name="tour" required>
+                <option value="">Select Package</option>
+                <option value="heritage">Heritage & Monastery Tour</option>
+                <option value="cultural">Cultural Festival Participation</option>
+                <option value="adventure">Adventure & Nature Tour</option>
+            </select>
+
+            <label for="date">Preferred Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="message">Additional Notes</label>
+            <textarea id="message" name="message" rows="4" placeholder="Any special requests or notes"></textarea>
+
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</main>
+
+<!-- Reviews Section -->
+<div class="reviews">
+    <h2>Top Tourist Reviews</h2>
+    <div class="review">
+        <h4>Emma L.</h4>
+        <p>"The monastery tour was breathtaking! The guides were knowledgeable, and the cultural experience was unforgettable."</p>
+    </div>
+    <div class="review">
+        <h4>Ravi S.</h4>
+        <p>"Participating in the local festival was a once-in-a-lifetime experience. I felt deeply connected to Sikkim’s heritage."</p>
+    </div>
+    <div class="review">
+        <h4>Sophia W.</h4>
+        <p>"Beautiful landscapes, serene monasteries, and friendly locals. Highly recommend this cultural tour!"</p>
+    </div>
+</div>
+
+<!-- Review Submission Form -->
+<div class="review-form">
+    <h2>Share Your Experience</h2>
+    <form action="#" method="post">
+        <label for="review-name">Your Name</label>
+        <input type="text" id="review-name" name="review-name" placeholder="Enter your name" required>
+
+        <label for="review-email">Email</label>
+        <input type="email" id="review-email" name="review-email" placeholder="Enter your email" required>
+
+        <label for="review-message">Your Review</label>
+        <textarea id="review-message" name="review-message" rows="4" placeholder="Write your review here" required></textarea>
+
+        <button type="submit">Submit Review</button>
+    </form>
+</div>
+
+<footer>
+    &copy; 2025 Discover Sikkim. All Rights Reserved.
+</footer>
+
+</body>
+</html>

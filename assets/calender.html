@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sikkim Cultural Calendar 2025</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0; padding: 0;
+      background: linear-gradient(to right, #fff7f0, #ffffff);
+      display: flex;
+      flex-direction: column;
+      color: #333;
+    }
+
+    header {
+      background: #ff7b00;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    header h1 { margin: 0; font-size: 2rem; }
+
+    main {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    /* Left side calendar container */
+    .calendar-container {
+      flex: 3;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .calendar {
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255,123,0,0.3);
+      padding: 0.8rem;
+      border: 2px solid #ff9f40;
+      transition: transform 0.2s ease-in-out;
+    }
+    .calendar:hover { transform: scale(1.02); }
+
+    .calendar h2 {
+      text-align: center;
+      margin: 0.5rem 0;
+      color: #ff7b00;
+      font-size: 1.2rem;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .day-name {
+      font-weight: bold;
+      text-align: center;
+      padding: 0.3rem;
+      background: #ffe8d1;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      color: #ff7b00;
+    }
+
+    .day {
+      background: #fffaf5;
+      border-radius: 4px;
+      padding: 0.4rem;
+      min-height: 60px;
+      text-align: right;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.2s;
+      position: relative;
+      border: 1px solid #ffedd6;
+    }
+    .day:hover { background: #ffe4c7; }
+
+    .event {
+      display: block;
+      margin-top: 0.2rem;
+      font-size: 0.65rem;
+      padding: 0.15rem 0.25rem;
+      border-radius: 4px;
+      text-align: left;
+      color: white;
+    }
+    .festival { background: #ff7b00; }
+    .ritual   { background: #e84a00; }
+    .ceremony { background: #ff9f40; }
+
+    /* Right side seasonal info */
+    .info-panel {
+      flex: 1.2;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(255,123,0,0.25);
+      padding: 1rem;
+      height: fit-content;
+      position: sticky;
+      top: 1rem;
+      border: 2px solid #ff9f40;
+    }
+    .info-panel h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #ff7b00;
+    }
+    .season-block {
+      margin-bottom: 1rem;
+      padding: 0.6rem;
+      border-left: 4px solid #ff7b00;
+      background: #fff7f0;
+      border-radius: 6px;
+    }
+    .season-block h3 { margin: 0 0 0.3rem; color: #e84a00; }
+    .season-block p { margin: 0.2rem 0; font-size: 0.85rem; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      width: 380px;
+      max-width: 90%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(255,123,0,0.3);
+      animation: fadeIn 0.3s ease-in-out;
+      position: relative;
+      border: 2px solid #ff9f40;
+    }
+    @keyframes fadeIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal h3 { margin-top: 0; color: #ff7b00; }
+    .close {
+      position: absolute;
+      top: 8px; right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Sikkim Cultural Calendar 2025</h1>
+    <p>Click on highlighted dates to see festivals, rituals & monastery visits</p>
+  </header>
+
+  <main>
+    <!-- Calendars -->
+    <div class="calendar-container" id="calendarContainer"></div>
+
+    <!-- Seasonal Info -->
+    <div class="info-panel">
+      <h2>Best Seasons & Monasteries</h2>
+      <div class="season-block">
+        <h3>🌸 Spring (Mar–May)</h3>
+        <p>Pleasant weather, rhododendron blooms.</p>
+        <p>Best Monasteries: Rumtek, Tashiding.</p>
+      </div>
+      <div class="season-block">
+        <h3>🌧️ Summer (Jun–Aug)</h3>
+        <p>Monsoon season, lush greenery.</p>
+        <p>Best Monasteries: Pemayangtse, Enchey.</p>
+      </div>
+      <div class="season-block">
+        <h3>🍂 Autumn (Sep–Nov)</h3>
+        <p>Clear skies, festival season.</p>
+        <p>Best Monasteries: Pemayangtse, Phodong.</p>
+      </div>
+      <div class="season-block">
+        <h3>❄️ Winter (Dec–Feb)</h3>
+        <p>Cold & crisp, snow at higher altitudes.</p>
+        <p>Best Monasteries: Ralang, Rumtek.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="eventModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3 id="eventTitle"></h3>
+      <p id="eventPlace"></p>
+      <p id="eventClimate"></p>
+      <p id="eventMonastery"></p>
+    </div>
+  </div>
+
+  <script>
+    // Month data
+    const months = [
+      { name: "January", days: 31 },
+      { name: "February", days: 28 },
+      { name: "March", days: 31 },
+      { name: "April", days: 30 },
+      { name: "May", days: 31 },
+      { name: "June", days: 30 },
+      { name: "July", days: 31 },
+      { name: "August", days: 31 },
+      { name: "September", days: 30 },
+      { name: "October", days: 31 },
+      { name: "November", days: 30 },
+      { name: "December", days: 31 }
+    ];
+
+    // Example events
+    const events = {
+      "9-4": { title: "Phang Lhabsol Festival", place: "Rabdentse & Pemayangtse", climate: "Clear skies, post-monsoon", monastery: "Pemayangtse, Enchey", type: "festival" },
+      "9-9": { title: "Mask Dance Ceremony", place: "Pemayangtse Monastery", climate: "Cool autumn", monastery: "Pemayangtse, Tashiding", type: "ceremony" },
+      "12-25": { title: "Losoong Festival", place: "Rumtek & Phodong", climate: "Cold winter", monastery: "Rumtek, Phodong", type: "ritual" }
+    };
+
+    // Build calendars
+    const container = document.getElementById("calendarContainer");
+    months.forEach((month, i) => {
+      const cal = document.createElement("div");
+      cal.className = "calendar";
+
+      cal.innerHTML = `
+        <h2>${month.name} 2025</h2>
+        <div class="calendar-grid">
+          <div class="day-name">Sun</div>
+          <div class="day-name">Mon</div>
+          <div class="day-name">Tue</div>
+          <div class="day-name">Wed</div>
+          <div class="day-name">Thu</div>
+          <div class="day-name">Fri</div>
+          <div class="day-name">Sat</div>
+        </div>
+      `;
+
+      const grid = cal.querySelector(".calendar-grid");
+
+      for (let d = 1; d <= month.days; d++) {
+        const day = document.createElement("div");
+        day.className = "day";
+        day.innerHTML = `<span class="date">${d}</span>`;
+        const key = `${i+1}-${d}`;
+        if (events[key]) {
+          const e = events[key];
+          day.innerHTML += `<span class="event ${e.type}">${e.title}</span>`;
+          day.onclick = () => openModal(e.title, "Best Place: " + e.place, "Climate: " + e.climate, "Monasteries: " + e.monastery);
+        }
+        grid.appendChild(day);
+      }
+
+      container.appendChild(cal);
+    });
+
+    function openModal(title, place, climate, monastery) {
+      document.getElementById("eventTitle").textContent = title;
+      document.getElementById("eventPlace").textContent = place;
+      document.getElementById("eventClimate").textContent = climate;
+      document.getElementById("eventMonastery").textContent = monastery;
+      document.getElementById("eventModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("eventModal").style.display = "none";
+    }
+  </script>
+</body>
+</html>
